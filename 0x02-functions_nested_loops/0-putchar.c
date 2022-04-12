@@ -2,9 +2,8 @@
 /**
  * main - Entry point
  *
- * Return: nothing, return void
+ * Return: Always 0
  */
-
 int main(void)
 {
 _putchar('_');
