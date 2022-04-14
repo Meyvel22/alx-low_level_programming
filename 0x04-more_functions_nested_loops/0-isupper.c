@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _isupper - Returns 1 if c is uppercase otherwise 0
  * @c: contains value to be compared
