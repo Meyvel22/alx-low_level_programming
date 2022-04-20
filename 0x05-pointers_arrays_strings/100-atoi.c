@@ -21,7 +21,7 @@ int _atoi(char *s)
 	while (s[i] <= 57 && (s[i] >= 48 && s[i] != '\0'))
 	{
 		res = (res * 10) + (s[i] - 48);
-		i++
+		i++;
 	}
 	res *= sign;
 	return (res);
