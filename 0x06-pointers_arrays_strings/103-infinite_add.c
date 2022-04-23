@@ -10,7 +10,7 @@
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int add = o, ab1, ab2, x, y;
+	int add = 0, ab1, ab2, x, y;
 
 	for (ab1 = 0; n1[ab1]; ab1++)
 	;
