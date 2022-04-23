@@ -18,7 +18,7 @@ void print_buffer(char *b, int size)
 		for (u = 0; u < size; u += 10)
 		{
 			printf("%.8x:", u);
-			for (v = u; v < u + 10; u++)
+			for (v = u; v < u + 10; v++)
 			{
 				if (v % 2 == 0)
 					printf(" ");
