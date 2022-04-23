@@ -13,9 +13,9 @@ char *rot13(char *c)
 	char c_alph[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char c_rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	for (c[x] != '\0'; x++)
+	for (x = 0; c[x] != '\0'; x++)
 	{
-		for (c_alph[y] != '\0'; y++)
+		for (y = 0; c_alph[y] != '\0'; y++)
 		{
 			if (c[x] == c_alph[y])
 			{
