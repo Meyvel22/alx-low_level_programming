@@ -35,7 +35,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	r[x] = '\0';
 	if (ab1 >= 0 || ab2 >= 0 || add)
 		return (0);
-	for (x--, y = 0; x > y; x--, y--)
+	for (x--, y = 0; x > y; x--, y++)
 	{
 		add = r[x];
 		r[x] = r[y];
