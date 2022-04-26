@@ -24,7 +24,7 @@ char *_strstr(char *haystack, char *needle)
 		}
 		if (!*nneedle)
 			return (begin);
-		haystack = begin +1;
+		haystack = begin + 1;
 	}
 	return (0);
 }
