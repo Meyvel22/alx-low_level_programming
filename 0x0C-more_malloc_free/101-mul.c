@@ -23,10 +23,10 @@ int _atoi_digit(char x)
  **/
 int _isNumber(char *argv)
 {
-	int y;
+	int i;
 
-	for (y = 0; argv[y]; y++)
-		if (argv[y] < 48 || argv[y] > 57)
+	for (i = 0; argv[i]; i++)
+		if (argv[i] < 48 || argv[i] > 57)
 			return (1);
 	return (0);
 }
