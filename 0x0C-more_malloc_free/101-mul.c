@@ -83,17 +83,17 @@ int _checknum(char *argv[], int n)
  */
 int main(int argc, char *argv[])
 {
-	int ln1, ln2, lx, add, addl, i, j, k, ca;
+	int ln1, ln2, lnx, add, addl, i, j, k, ca;
 	char *nx;
 
 	if (argc != 3)
 		printf("Error\n"), exit(98);
 	ln1 = _checknum(argv, 1), ln2 = _checknum(argv, 2);
-	_is_zero(argv), lx = ln1 + ln2, nx = malloc(lx + 1);
+	_is_zero(argv), lnx = ln1 + ln2, nx = malloc(lnx + 1);
 	if (nx == NULL)
 		printf("Error\n"), exit(98);
-	nx = _initialize_array(nx, lx);
-	k = lx - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
+	nx = _initialize_array(nx, lnx);
+	k = lnx - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
 	for (; k >= 0; k--, i--)
 	{
 		if (i < 0)
@@ -105,15 +105,15 @@ int main(int argc, char *argv[])
 					nx[k - 1] = (add / 10) + '0';
 				nx[k] = (add % 10) + '0';
 			}
-			i = ln1 - 1, j--, addl = 0, ca++, k = lx - (1 + ca);
+			i = ln1 - 1, j--, addl = 0, ca++, k = lnx - (1 + ca);
 		}
 		if (j < 0)
 		{
 			if (nx[0] != '0')
 				break;
-			lx--;
-			free(nx), nx = malloc(lx + 1), nx = _initialize_array(nx, lx);
-			k = lx - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
+			lnx--;
+			free(nx), nx = malloc(lnx + 1), nx = _initialize_array(nx, lnx);
+			k = lnx - 1, i = ln1 - 1, j = ln2 - 1, ca = addl = 0;
 		}
 		if (j >= 0)
 		{
