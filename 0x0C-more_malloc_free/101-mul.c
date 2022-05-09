@@ -11,8 +11,8 @@ int _atoi_digit(char x)
 {
 	unsigned int res;
 
-	if (x <= 57 && x >= 48)
-		res = x - 48;
+	if (x <= '9' && x >= '0')
+		res = x - '0';
 	return (res);
 }
 
@@ -40,23 +40,22 @@ int _isNumber(char *argv)
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-        char *s;
-        unsigned int x;
+	char *s;
+	unsigned int x;
 
-        if (nmemb == 0 || size == 0)
-                return (NULL);
+	if (nmemb == 0 || size == 0)
+		return (NULL);
 
-        s = malloc(nmemb * size);
+	s = malloc(nmemb * size);
 
-        if (s == NULL)
-                return (NULL);
+	if (s == NULL)
+		return (NULL);
 
-        for (x = 0; x < (nmemb * size); x++)
-                s[x] = 0;
+	for (x = 0; x < (nmemb * size); x++)
+		s[x] = 0;
 
-        return (s);
+	return (s);
 }
-
 
 /**
  * mul_array - multiply two arrays.
