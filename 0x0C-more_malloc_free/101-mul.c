@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * main - multiplies tow positive numbers
+ * main - multiplies two positive numbers
  * @argc: arg count
  * @argv: arg vector
  * Return: 0, Always Success
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 			}
 		}
 	}
-	mul = atol(argv[1]) * artol(argv[2]);
+	mul = atoi(argv[1]) * atoi(argv[2]);
 	printf("%lu\n", mul);
 	return (0);
 }
