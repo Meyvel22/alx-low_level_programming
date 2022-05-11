@@ -1,5 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * *new_dog - function that creates a new dog
@@ -23,6 +24,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	for (pname = 0; name[pname]; pname++)
 		;
+
 	for (powner = 0; owner[powner]; powner++)
 		;
 
