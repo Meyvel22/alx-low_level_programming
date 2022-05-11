@@ -1,15 +1,15 @@
 #include "dog.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
- * *new_dog - function that creates a new dog
- * @name: name of new dog
- * @age: age of new dog
- * @owner: name of owner of new dog
- * Return: NULL if function fails
+ * new_dog - creates a new dog.
+ * @name: name of the dog.
+ * @age: age of the dog.
+ * @owner: owner of the dog.
+ *
+ * Return: struct dog.
+ * if fails, returns NULL.
  */
-
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *n_dog;
@@ -28,26 +28,26 @@ dog_t *new_dog(char *name, float age, char *owner)
 	for (powner = 0; owner[powner]; powner++)
 		;
 
-	(*n_dog).name = malloc(pname + 1);
-	(*n_dog).owner = malloc(powner + 1);
+	n_dog->name = malloc(pname + 1);
+	n_dog->owner = malloc(powner + 1);
 
-	if (!((*n_dog).name) || !((*n_dog).owner))
+	if (!(n_dog->name) || !(n_dog->owner))
 	{
-		free((*n_dog).name);
-		free((*n_dog).owner);
-		free(*n_dog);
+		free(n_dog->owner);
+		free(n_dog->name);
+		free(n_dog);
 		return (NULL);
 	}
 
 	for (x = 0; x < pname; x++)
-		(*n_dog).name[x] = name[x];
-	(*n_dog).name[x] = '\0';
+		n_dog->name[x] = name[x];
+	n_dog->name[x] = '\0';
 
-	(*n_dog).age = age;
+	n_dog->age = age;
 
 	for (x = 0; x < powner; x++)
-		(*n_dog).owner[x] = owner[x];
-	(*n_dog).owner[x] = '\0';
+		n_dog->owner[x] = owner[x];
+	n_dog->owner[x] = '\0';
 
 	return (n_dog);
 }
