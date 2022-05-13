@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-	int x, ybytes;
+	int x, bytes;
 	char *abc = (char *) main;
 
 	if (argc != 2)
@@ -19,21 +19,21 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	ybytes = atoi(argv[1]);
+	bytes = atoi(argv[1]);
 
-	if (ybytes < 0)
+	if (bytes < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
 
-	for (x = 0; x < ybytes; x++)
+	for (x = 0; x < bytes; x++)
 	{
-		printf("%02hhx", *(*abc + x));
-		if (x < ybytes - 1)
+		printf("%02x", abc[x] & 0xFF);
+		if (x != bytes - 1)
 			printf(" ");
-		else
-			printf("\n");
 	}
+
+	printf("\n");
 	return (0);
 }
