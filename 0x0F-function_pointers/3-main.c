@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
 	{
 		printf("Error\n");
 		exit(99);
+	}
 
 	abc = get_op_func(argv[2]);
 
