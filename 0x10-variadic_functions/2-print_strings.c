@@ -1,8 +1,8 @@
 #include "variadic_functions.h"
 
 /**
- * print_strings - function that prints strings, followed by a new line
- * @separator: the string to be printed between the strings
+ * print_strings - function that prints, followed by a new line
+ * @separator: string to be printed between the strings
  * @n: number of strings passed to the function
  *
  * Return: void
@@ -10,25 +10,27 @@
 
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list character;
-	char *str;
+	va_list chara;
+	char *c;
 	unsigned int x;
 
-	va_start(character, n);
+	if (separator == NULL)
+		separator = "";
 
-	for (x = 0, x < n; x++)
+	va_start(chara, n);
+
+	for (x = 0; x < n; x++)
 	{
-		str = va_arg(character, char *);
+		c = va_arg(chara, char *);
 
-		if (str == NULL)
-			printf("(nil)");
-		else
-			printf("%s", str);
-		if (x != (n - 1) && separator != NULL)
+		if (c == NULL)
+			c = "(nil)";
+		printf("%s", c);
+		if (x < n - 1)
+		{
 			printf("%s", separator);
+		}
 	}
-
 	printf("\n");
-
-	va_end(character);
+	va_end(chara);
 }
