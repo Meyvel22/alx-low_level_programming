@@ -31,10 +31,10 @@ void print_all(const char * const format, ...)
 			case 'f':
 				printf("%s%f", separator, va_arg(alist, double));
 			case 's':
-				s = va_arg(alist, char *);
-				if (s == NULL)
-					s = "(nil)";
-				printf("%s%s", separator, s);
+				y = va_arg(alist, char *);
+				if (y == NULL)
+					y = "(nil)";
+				printf("%s%s", separator, y);
 				break;
 			default:
 				x++;
