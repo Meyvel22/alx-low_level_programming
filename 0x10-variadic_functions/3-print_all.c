@@ -30,6 +30,7 @@ void print_all(const char * const format, ...)
 				break;
 			case 'f':
 				printf("%s%f", separator, va_arg(any, double));
+				break;
 			case 's':
 				y = va_arg(any, char *);
 				if (y == NULL)
