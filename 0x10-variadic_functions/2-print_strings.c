@@ -4,22 +4,21 @@
  * print_strings - function that prints strings, followed by a new line
  * @separator: the string to be printed between the strings
  * @n: number of strings passed to the function
- * @...: other parameters
  *
  * Return: void
  */
 
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list alist;
+	va_list ch;
 	unsigned int x;
 	char *st;
 
-	va_start(alist, n);
+	va_start(ch, n);
 
 	for (x = 0, x < n; x++)
 	{
-		st = va_arg(alist, char *);
+		st = va_arg(ch, char *);
 
 		if (st == NULL)
 			printf("(nil)");
@@ -31,5 +30,5 @@ void print_strings(const char *separator, const unsigned int n, ...)
 
 	printf("\n");
 
-	va_end(alist);
+	va_end(ch);
 }
