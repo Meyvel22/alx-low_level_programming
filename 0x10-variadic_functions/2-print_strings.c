@@ -20,15 +20,15 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	{
 		st = va_arg(alist, char *);
 
-		if (st)
-			printf("%s", st);
-		else
+		if (st == NULL)
 			printf("(nil)");
-		if (x < n - 1)
-			if (separator)
-				printf("%s", separator);
+		else
+			printf("%s", st);
+		if (x != (n - 1) && separator != NULL)
+			printf("%s", separator);
 	}
 
 	printf("\n");
+
 	va_end(alist);
 }
