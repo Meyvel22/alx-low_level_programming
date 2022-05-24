@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void print(void) __attribute__((constructor));
 /**
  * print - prints a string before main
  *
