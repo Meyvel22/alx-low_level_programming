@@ -12,32 +12,32 @@ listint_t *find_listint_loop(listint_t *head)
 	listint_t *live;
 	listint_t *note;
 
-	if (head == NULL)
-		return (NULL);
-
 	live = head;
 	note = head;
-	while (live && note && note->next)
+	while (head && live && live->next)
 	{
-		live = live->next;
-		note = note->next->next;
-		if (live == note)
+		head = head->next;
+		live = live->next->next;
+
+		if (head == live)
 		{
-			return (note);
+			head = note;
+			note =  live;
+			while (1)
+			{
+				live = note;
+				while (live->next != head && live->next != note)
+				{
+					live = live->next;
+				}
+				if (live->next == head)
+					break;
+
+				head = head->next;
+			}
+			return (live->next);
 		}
 	}
-	if (live != note)
-	{
-		return (NULL);
-	}
-	else
-	{
-		live = head;
-		while (live != note)
-		{
-			live = live->next;
-			note = note->next;
-		}
-		return (note);
-	}
+
+	return (NULL);
 }
