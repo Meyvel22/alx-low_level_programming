@@ -1,24 +1,23 @@
 #include "lists.h"
 
 /**
- * free_listp2 - function that frees a linked list
- * @head: head of linked list
+ * free_listp2 - frees a linked list
+ * @head: head of a list.
  *
- * Return: void
+ * Return: no return.
  */
-
 void free_listp2(listp_t **head)
 {
-	listp_t *loose;
-	listp_t *idle;
+	listp_t *temp;
+	listp_t *curr;
 
 	if (head != NULL)
 	{
-		idle = *head;
-		while ((loose = idle) != NULL)
+		curr = *head;
+		while ((temp = curr) != NULL)
 		{
-			idle = idle->next;
-			free(loose);
+			curr = curr->next;
+			free(temp);
 		}
 		*head = NULL;
 	}
