@@ -25,50 +25,49 @@ void free_listp2(listp_t **head)
 }
 
 /**
- * free_listint_safe - function that frees a listint_t linked list.
- * @h: head of the listint_t list
+ * free_listint_safe - frees a linked list.
+ * @h: head of a list.
  *
- * Return: the size of the list that was free'd.
+ * Return: size of the list that was freed.
  */
-
 size_t free_listint_safe(listint_t **h)
 {
-	size_t apex = 0;
-	listp_t *hptr, *mint, *join;
-	listint_t *idle;
+	size_t nnodes = 0;
+	listp_t *hptr, *new, *add;
+	listint_t *curr;
 
 	hptr = NULL;
 	while (*h != NULL)
 	{
-		mint = malloc(sizeof(listp_t));
+		new = malloc(sizeof(listp_t));
 
-		if (mint == NULL)
+		if (new == NULL)
 			exit(98);
 
-		mint->p = (void *)*h;
-		mint->next = hptr;
-		hptr = mint;
+		new->p = (void *)*h;
+		new->next = hptr;
+		hptr = new;
 
-		join = hptr;
+		add = hptr;
 
-		while (join->next != NULL)
+		while (add->next != NULL)
 		{
-			join = join->next;
-			if (*h == join->p)
+			add = add->next;
+			if (*h == add->p)
 			{
 				*h = NULL;
 				free_listp2(&hptr);
-				return (apex);
+				return (nnodes);
 			}
 		}
 
-		idle = *h;
+		curr = *h;
 		*h = (*h)->next;
-		free(idle);
-		apex++;
+		free(curr);
+		nnodes++;
 	}
 
 	*h = NULL;
 	free_listp2(&hptr);
-	return (apex);
+	return (nnodes);
 }

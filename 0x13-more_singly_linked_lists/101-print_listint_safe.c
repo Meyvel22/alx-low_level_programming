@@ -25,46 +25,46 @@ void free_listp(listp_t **head)
 }
 
 /**
- * print_listint_safe - function that prints a listint_t linked list.
- * @head: head of listint_t list
+ * print_listint_safe - function that prints a linked list.
+ * @head: head of a linked list.
  *
- * Return: the number of nodes in the list.
+ * Return: number of nodes in the list.
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t apex = 0;
-	listp_t *hptr, *mint, *join;
+	size_t nnodes = 0;
+	listp_t *hptr, *new, *add;
 
 	hptr = NULL;
 	while (head != NULL)
 	{
-		mint = malloc(sizeof(listp_t));
+		new = malloc(sizeof(listp_t));
 
-		if (mint == NULL)
+		if (new == NULL)
 			exit(98);
 
-		mint->p = (void *)head;
-		mint->next = hptr;
-		hptr = mint;
+		new->p = (void *)head;
+		new->next = hptr;
+		hptr = new;
 
-		join = hptr;
+		add = hptr;
 
-		while (join->next != NULL)
+		while (add->next != NULL)
 		{
-			join = join->next;
-			if (head == join->p)
+			add = add->next;
+			if (head == add->p)
 			{
 				printf("-> [%p] %d\n", (void *)head, head->n);
 				free_listp(&hptr);
-				return (apex);
+				return (nnodes);
 			}
 		}
 
 		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next;
-		apex++;
+		nnodes++;
 	}
 
 	free_listp(&hptr);
-	return (apex);
+	return (nnodes);
 }
