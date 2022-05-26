@@ -1,13 +1,13 @@
 #include "lists.h"
 
 /**
- * free_listn - function that frees a linked list
+ * free_listp - function that frees a linked list
  * @head: head of a linked list
  *
  * Return: void
  */
 
-void free_listn(listp_t **head)
+void free_listp(listp_t **head)
 {
 	listp_t *loose;
 	listp_t *idle;
