@@ -17,6 +17,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	fill = *head;
 
+	if (idx != 0)
+	{
+		for (x = 0; x < idx - 1 && fill != NULL; x++)
+		{
+			fill = fill->next;
+		}
+	}
 	if (fill == NULL && idx != 0)
 		return (NULL);
 
@@ -25,14 +32,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 
 	mint->n = n;
-
-	if (idx != 0)
-	{
-		for (x = 0; x < idx - 1 && fill != NULL; x++)
-		{
-			fill = fill->next;
-		}
-	}
 
 	if (idx == 0)
 	{
