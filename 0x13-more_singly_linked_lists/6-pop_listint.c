@@ -9,15 +9,22 @@
 
 int pop_listint(listint_t **head)
 {
-	int kill;
+	int fact;
+	listint_t *kill;
 	listint_t *erase;
 
-	*erase = *head;
-	if (!erase)
+	if (*head == NULL)
 		return (0);
 
-	kill = (*head)->n;
-	*head = erase->next;
+	erase = *head;
+
+	fact = erase->n;
+
+	h = erase->next;
+
 	free(erase);
-	return (kill);
+
+	*head = kill;
+
+	return (fact);
 }
