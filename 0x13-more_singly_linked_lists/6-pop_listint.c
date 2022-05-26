@@ -7,13 +7,13 @@
  * Return: integer
  */
 
-int pop_listint_t(listint_t **head)
+int pop_listint(listint_t **head)
 {
 	int kill;
 	listint_t *erase;
 
 	*erase = *head;
-	if (!head)
+	if (!erase)
 		return (0);
 
 	kill = (*head)->n;
