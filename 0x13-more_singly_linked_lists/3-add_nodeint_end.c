@@ -17,18 +17,20 @@ listint_t *add_nodeint_end(listint_t **head, const int n)
 
 	if (mint == NULL)
 		return (NULL);
+
 	mint->n = n;
 	mint->next = NULL;
+
+	if (*head == NULL)
+	{
+		*head = mint;
+		return (mint);
+	}
 	tip = *head;
 
-	if (head)
-	{
-		while (tip->next != NULL)
-			tip = tip->next;
-		tip->next = mint;
-	}
-	else
-		*head = mint;
+	while (tip->next != NULL)
+		tip = tip->next;
+	tip->next = mint;
 
-	return (*head);
+	return (mint);
 }
