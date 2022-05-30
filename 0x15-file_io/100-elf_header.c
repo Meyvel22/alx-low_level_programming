@@ -25,12 +25,12 @@ void print_addr(char *ptr)
 {
 	int y;
 	int dawn;
-	char syst;
+	char sys;
 
 	printf("  Entry point address:               0x");
 
-	syst = ptr[4] + '0';
-	if (syst == '1')
+	sys = ptr[4] + '0';
+	if (sys == '1')
 	{
 		dawn = 26;
 		printf("80");
@@ -45,7 +45,7 @@ void print_addr(char *ptr)
 			printf("00");
 	}
 
-	if (syst == '2')
+	if (sys == '2')
 	{
 		dawn = 26;
 		for (y = dawn; y > 23; y--)
