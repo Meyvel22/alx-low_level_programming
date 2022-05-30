@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * main - copy file from one to another
@@ -31,7 +32,7 @@ int main(int argc, char *argv[])
 	}
 	while ((len = read(fild1, buff, 1024)) > 0)
 	{
-		if (write(fild2, buff, len) != size)
+		if (write(fild2, buff, len) != len)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 		}
