@@ -19,12 +19,12 @@ int main(int argc, char *argv[]);
 /**
  * print_addr - prints address
  * @ptr: magic.
- * Return: void.
+ * Return: no return.
  */
 void print_addr(char *ptr)
 {
-	int y;
-	int dawn;
+	int i;
+	int begin;
 	char sys;
 
 	printf("  Entry point address:               0x");
@@ -32,14 +32,14 @@ void print_addr(char *ptr)
 	sys = ptr[4] + '0';
 	if (sys == '1')
 	{
-		dawn = 26;
+		begin = 26;
 		printf("80");
-		for (y = dawn; y >= 22; y--)
+		for (i = begin; i >= 22; i--)
 		{
-			if (ptr[y] > 0)
-				printf("%x", ptr[y]);
-			else if (ptr[y] < 0)
-				printf("%x", 256 + ptr[y]);
+			if (ptr[i] > 0)
+				printf("%x", ptr[i]);
+			else if (ptr[i] < 0)
+				printf("%x", 256 + ptr[i]);
 		}
 		if (ptr[7] == 6)
 			printf("00");
@@ -47,14 +47,14 @@ void print_addr(char *ptr)
 
 	if (sys == '2')
 	{
-		dawn = 26;
-		for (y = dawn; y > 23; y--)
+		begin = 26;
+		for (i = begin; i > 23; i--)
 		{
-			if (ptr[y] >= 0)
-				printf("%02x", ptr[y]);
+			if (ptr[i] >= 0)
+				printf("%02x", ptr[i]);
 
-			else if (ptr[y] < 0)
-				printf("%02x", 256 + ptr[y]);
+			else if (ptr[i] < 0)
+				printf("%02x", 256 + ptr[i]);
 
 		}
 	}
@@ -64,7 +64,7 @@ void print_addr(char *ptr)
 /**
  * print_type - prints type
  * @ptr: magic.
- * Return: void.
+ * Return: no return.
  */
 void print_type(char *ptr)
 {
@@ -93,7 +93,7 @@ void print_type(char *ptr)
 /**
  * print_osabi - prints osabi
  * @ptr: magic.
- * Return: void.
+ * Return: no return.
  */
 void print_osabi(char *ptr)
 {
@@ -116,7 +116,7 @@ void print_osabi(char *ptr)
 /**
  * print_version - prints version
  * @ptr: magic.
- * Return: void.
+ * Return: no return.
  */
 void print_version(char *ptr)
 {
@@ -129,11 +129,10 @@ void print_version(char *ptr)
 
 	printf("\n");
 }
-
 /**
  * print_data - prints data
  * @ptr: magic.
- * Return: void.
+ * Return: no return.
  */
 void print_data(char *ptr)
 {
@@ -146,11 +145,10 @@ void print_data(char *ptr)
 	if (data == 2)
 		printf(", big endian\n");
 }
-
 /**
  * print_magic - prints magic info.
  * @ptr: magic.
- * Return: void.
+ * Return: no return.
  */
 void print_magic(char *ptr)
 {
@@ -168,7 +166,7 @@ void print_magic(char *ptr)
 /**
  * check_sys - check the version system.
  * @ptr: magic.
- * Return: void.
+ * Return: no return.
  */
 void check_sys(char *ptr)
 {
@@ -212,14 +210,14 @@ int check_elf(char *ptr)
 }
 
 /**
- * main - check the code for students.
+ * main - check the code for Holberton School students.
  * @argc: number of arguments.
  * @argv: arguments vector.
  * Return: Always 0.
  */
 int main(int argc, char *argv[])
 {
-	int fild, rt_read;
+	int fd, ret_read;
 	char ptr[27];
 
 	if (argc != 2)
@@ -228,18 +226,18 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	fild = open(argv[1], O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 
-	if (fild < 0)
+	if (fd < 0)
 	{
 		dprintf(STDERR_FILENO, "Err: file can not be open\n");
 		exit(98);
 	}
 
-	lseek(fild, 0, SEEK_SET);
-	rt_read = read(fild, ptr, 27);
+	lseek(fd, 0, SEEK_SET);
+	ret_read = read(fd, ptr, 27);
 
-	if (rt_read == -1)
+	if (ret_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
 		exit(98);
@@ -252,7 +250,7 @@ int main(int argc, char *argv[])
 	}
 
 	check_sys(ptr);
-	close(fild);
+	close(fd);
 
 	return (0);
 }
