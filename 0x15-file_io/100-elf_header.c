@@ -6,6 +6,16 @@
 #include <unistd.h>
 #include <elf.h>
 
+void print_addr(char *ptr);
+void print_type(char *ptr);
+void print_osabi(char *ptr);
+void print_version(char *ptr);
+void print_data(char *ptr);
+void print_magic(char *ptr);
+void check_sys(char *ptr);
+int check_elf(char *ptr);
+int main(int argc, char *argv[]);
+
 /**
  * print_addr - prints address
  * @ptr: magic.
@@ -119,6 +129,7 @@ void print_version(char *ptr)
 
 	printf("\n");
 }
+
 /**
  * print_data - prints data
  * @ptr: magic.
@@ -135,6 +146,7 @@ void print_data(char *ptr)
 	if (data == 2)
 		printf(", big endian\n");
 }
+
 /**
  * print_magic - prints magic info.
  * @ptr: magic.
@@ -152,6 +164,7 @@ void print_magic(char *ptr)
 	printf("\n");
 
 }
+
 /**
  * check_sys - check the version system.
  * @ptr: magic.
@@ -179,6 +192,7 @@ void check_sys(char *ptr)
 	print_type(ptr);
 	print_addr(ptr);
 }
+
 /**
  * check_elf - check if it is an elf file.
  * @ptr: magic.
@@ -196,6 +210,7 @@ int check_elf(char *ptr)
 
 	return (0);
 }
+
 /**
  * main - check the code for students.
  * @argc: number of arguments.
